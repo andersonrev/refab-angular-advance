@@ -15,12 +15,21 @@ import { ChangeDetectionStrategy, Component, HostBinding, input } from '@angular
 export class CalculatorButtonComponent {
 
     public isCommand = input(false, {
-      transform: (value: boolean | string) => 
+      transform: (value: boolean | string) =>
         typeof value === 'string' ? value === '' : value
     })
 
-    @HostBinding('class.bg-indigo-700') get commandStyle() {
-      return this.isCommand();
+    public isDoubleSize = input(false, {
+      transform: (value: boolean | string ) =>
+        typeof value === 'string' ? value === '' : value,
+    });
+
+    // @HostBinding('class.bg-indigo-700') get commandStyle() {
+    //   return this.isCommand();
+    // }
+
+    @HostBinding('class.w-2/4') get commandStyle() {
+      return this.isDoubleSize();
     }
 
 }

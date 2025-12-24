@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, HostBinding, input, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  input,
+  signal,
+} from '@angular/core';
 import { CalculatorButtonComponent } from '../calculator-button/calculator-button.component';
 
 @Component({
@@ -7,6 +13,10 @@ import { CalculatorButtonComponent } from '../calculator-button/calculator-butto
   imports: [CalculatorButtonComponent],
   templateUrl: './calculator.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  // styles: `
+  //   .is-command {
+  //     @apply bg-indigo-700 bg-opacity-200
+  //   }
+  // `
 })
-export class CalculatorComponent {
- }
+export class CalculatorComponent { }
