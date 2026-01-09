@@ -76,7 +76,7 @@ export class CalculatorService {
         return;
       }
 
-      this.resultText.update((value) => value + '.');
+      this.resultText.update((text) => text + '.');
       return;
     }
 
@@ -134,6 +134,10 @@ export class CalculatorService {
         break;
 
       case '*':
+        result = number1 * number2;
+        break;
+
+      case 'X':
         result = number1 * number2;
         break;
 
