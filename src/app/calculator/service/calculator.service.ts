@@ -1,14 +1,14 @@
 import { Injectable, signal } from '@angular/core';
 
 const numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-const operators = ['*', '-', '+', '/'];
+const operators = ['*', '-', '+', '/', '÷'];
 const specialOperators = ['+/-', '%', '.', '=', 'C', 'Backspace'];
 
 @Injectable({
   providedIn: 'root',
 })
 export class CalculatorService {
-  public resultText = signal<string>('20');
+  public resultText = signal<string>('0');
   public subResultText = signal<string>('0');
   public lastOperator = signal<string>('+');
   constructor() { }
@@ -38,18 +38,23 @@ export class CalculatorService {
     if (value === 'Backspace') {
       if (this.resultText() === '0') return;
 
+      if (this.resultText().includes('-') && this.resultText().length === 2) {
+        this.resultText.set('0');
+        return;
+      }
+
       if (this.resultText().length === 1) {
         this.resultText.set('0');
         return;
       }
 
-      this.resultText.update((value) => value.slice(0, -1));
+      this.resultText.update((v) => v.slice(0, -1));
       return;
     }
 
     // Operators
     if (operators.includes(value)) {
-      this.calculateResult();
+      // this.calculateResult();
 
       this.lastOperator.set(value);
       this.subResultText.set(this.resultText());
@@ -133,6 +138,10 @@ export class CalculatorService {
         break;
 
       case '/':
+        result = number1 / number2;
+        break;
+
+      case '÷':
         result = number1 / number2;
         break;
     }
