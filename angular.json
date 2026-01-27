@@ -71,8 +71,9 @@
         "test": {
           "builder": "@angular/build:unit-test",
           "options": {
-            "browsers": ["chromium"],
-            "tsConfig": "tsconfig.spec.json",
+              // "browsers": ["chromium"],
+              "coverage": true,
+            "tsConfig": "tsconfig.spec.json"
           }
         }
       }

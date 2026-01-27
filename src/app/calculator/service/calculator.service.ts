@@ -21,7 +21,6 @@ export class CalculatorService {
     }
 
     if (value === '=') {
-      console.log('calcular resultado');
       this.calculateResult();
       return;
     }
@@ -90,7 +89,6 @@ export class CalculatorService {
 
     // Cambio de signo
     if (value === '+/-') {
-      console.log("entra aqui")
       if (this.resultText().includes('-')) {
         this.resultText.update((text) => text.slice(1));
         return;
