@@ -2,6 +2,7 @@ import { ApplicationRef, ChangeDetectionStrategy, Component, inject, OnDestroy, 
 import { PokemonList } from "./components/pokemon-list/pokemon-list";
 import { PokemonListSkeleton } from "./ui/pokemon-list-skeleton/pokemon-list-skeleton";
 import { PokemonService } from '../../pokemons/services/pokemon-service';
+import { SimplePokemon } from '../../pokemons/interfaces';
 
 @Component({
   selector: 'app-pokemons',
@@ -14,21 +15,24 @@ export default class Pokemons implements OnInit{
 
 
   private pokemonService = inject(PokemonService)
-  public isLoading = signal(true);
+  public pokemons = signal<SimplePokemon[]>([])
+  // public isLoading = signal(true);
   // private appRef = inject(ApplicationRef)
 
   // private $appState = this.appRef.isStable.subscribe(isStable => { console.log({isStable})})
 
   ngOnInit(): void {
     this.loadPokemons()
-    setTimeout(() => {
-      this.isLoading.set(false);
-    }, 2_000)
+    // setTimeout(() => {
+    //   this.isLoading.set(false);
+    // }, 2_000)
   }
 
   public loadPokemons (page = 0 ){
     this.pokemonService.loadPage(page).subscribe(
-      pokemons => console.log("On Init")
+      pokemons => {
+        this.pokemons.set(pokemons)
+      }
     )
   }
 

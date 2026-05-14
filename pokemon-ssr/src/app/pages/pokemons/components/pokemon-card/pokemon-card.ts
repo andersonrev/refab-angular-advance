@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+import { SimplePokemon } from '../../../../pokemons/interfaces';
 
 @Component({
   selector: 'pokemon-card',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './pokemon-card.css',
 })
 export class PokemonCard {
+
+  public pokemon = input.required<SimplePokemon>();
+  public readonly pokemonImage = computed(() => `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${this.pokemon().id}.png`)
 
 }
