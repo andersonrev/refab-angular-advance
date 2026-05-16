@@ -1,6 +1,6 @@
 <h1 class="text-3xl">Listado de pokemons</h1>
 <h2 class="text-xl">
-    Pagina actual
+    Pagina actual {{currentPage()}}
 </h2>
 
 <hr class="my-2">
@@ -17,4 +17,5 @@
 <div class="flex justify-between">
     <button (click)="loadPokemons(-1)" class="mt-2">Anteriores</button>
     <button (click)="loadPokemons(+1)" class="mt-2">Siguientes</button>
+    <!-- <button (click)="currentName.set('otro')" class="mt-2">{{currentName()}}</button> -->
 </div>
