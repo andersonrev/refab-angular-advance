@@ -1,11 +1,13 @@
-import { Component, computed, input } from '@angular/core';
-import { SimplePokemon } from '../../../../pokemons/interfaces';
+import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { SimplePokemon } from '../../interfaces';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'pokemon-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './pokemon-card.html',
   styleUrl: './pokemon-card.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PokemonCard {
 

@@ -1,6 +1,6 @@
 import { Component, input } from '@angular/core';
 import { PokemonCard } from "../pokemon-card/pokemon-card";
-import { SimplePokemon } from '../../../../pokemons/interfaces';
+import { SimplePokemon } from '../../interfaces';
 
 @Component({
   selector: 'pokemon-list',

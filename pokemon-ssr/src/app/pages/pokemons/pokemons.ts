@@ -1,5 +1,5 @@
 import { ApplicationRef, ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
-import { PokemonList } from "./components/pokemon-list/pokemon-list";
+import { PokemonList } from "../../pokemons/components/pokemon-list/pokemon-list";
 import { PokemonListSkeleton } from "./ui/pokemon-list-skeleton/pokemon-list-skeleton";
 import { PokemonService } from '../../pokemons/services/pokemon-service';
 import { SimplePokemon } from '../../pokemons/interfaces';
