@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, OnInit, signal } from '@angular/core';
-import {Pokemon} from '../../pokemons/interfaces'
-import { PokemonService } from '../../pokemons/services/pokemon-service';
-import { ActivatedRoute } from '@angular/router';
 import { Meta, Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 import { tap } from 'rxjs';
+import { Pokemon } from '../../pokemons/interfaces';
+import { PokemonService } from '../../pokemons/services/pokemon-service';
 
 @Component({
   selector: 'app-pokemon',
