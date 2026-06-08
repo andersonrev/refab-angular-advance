@@ -35,17 +35,15 @@ export default class Pokemons{
   )
 
   public loadOnPageChanged = effect(() => {
-    console.log('Pagina cambio', this.currentPage())
     this.loadPokemons(this.currentPage())
   },
 )
   public loadPokemons (page = 0 ){
 
-    const pageToLoad = this.currentPage() ! + page;
 
-    this.pokemonService.loadPage(pageToLoad)
+    this.pokemonService.loadPage(page)
     .pipe(
-      tap(() => this.title.setTitle(`Pokemons SSR - Page ${pageToLoad}`))
+      tap(() => this.title.setTitle(`Pokemons SSR - Page ${page}`))
     ).
     subscribe(
       pokemons => {
